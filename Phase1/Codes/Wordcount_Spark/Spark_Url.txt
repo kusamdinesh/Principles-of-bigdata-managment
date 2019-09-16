@@ -1,0 +1,5 @@
+val fileUrl = sc.textFile("C:/Users/kusam/Desktop/part-1/twiturls.txt")
+val Wordsurl = fileUrl.flatMap(line => line.split(" "))
+val Countsurl = Wordsurl.map(word => (word, 1)).reduceByKey(_ + _)
+val SortedCounturl = Countsurl.sortBy(-_._2)
+SortedCounturl.saveAsTextFile("C:/Users/kusam/Desktop/part-1/urlsoutput")

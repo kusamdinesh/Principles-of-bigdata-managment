@@ -1,0 +1,5 @@
+val Filehashtags = sc.textFile("C:/Users/kusam/Desktop/part-1/hashtags.txt")
+val Wordshashtags = Filehashtags.flatMap(line => line.split(" "))
+val Countshashtags = Wordshashtags.map(word => (word, 1)).reduceByKey(_ + _)
+val SortedCounthashtags = Countshashtags.sortBy(-_._2)
+SortedCounthashtags.saveAsTextFile("C:/Users/kusam/Desktop/part-1/hashtagsoutput")
